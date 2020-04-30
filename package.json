@@ -1,11 +1,14 @@
 {
-  "name": "jest-parallel",
+  "name": "jest-async",
   "version": "1.0.0",
   "description": "Simplify Jest parallel testing.  \r This allows you to write fast test code.",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc -b",
+    "build": "tsc -b src",
     "test": "jest"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "jest",
@@ -32,14 +35,14 @@
     },
     "globals": {
       "ts-jest": {
-        "tsConfig": "tsconfig.json"
+        "tsConfig": "test/tsconfig.json"
       }
     },
     "testMatch": [
       "**/test/**/*.test.ts"
     ],
     "moduleNameMapper": {
-      "jest-parallel": "<rootDir>/dist"
+      "jest-async": "<rootDir>/dist"
     }
   },
   "directories": {
@@ -47,10 +50,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SoraKumo001/jest-parallel.git"
+    "url": "git+https://github.com/SoraKumo001/jest-async.git"
   },
   "bugs": {
-    "url": "https://github.com/SoraKumo001/jest-parallel/issues"
+    "url": "https://github.com/SoraKumo001/jest-async/issues"
   },
   "homepage": "https://ttis.croud.jp/"
 }

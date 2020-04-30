@@ -1,4 +1,4 @@
-import { testAsync, beforeAllAsync } from "jest-parallel";
+import { testAsync, beforeAllAsync } from "jest-async";
 
 const sleep = (value: number) =>
   new Promise((resolve) => setTimeout(resolve, value));

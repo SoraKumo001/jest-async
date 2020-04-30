@@ -1,4 +1,4 @@
-# jest-parallel
+# jest-async
 
 Simplify Jest parallel testing.  
 This allows you to write fast test code.  
@@ -9,7 +9,7 @@ You can synchronize by waiting for them with "await".
 ## Example
 
 ```ts
-import { testAsync, beforeAllAsync } from "jest-parallel";
+import { testAsync, beforeAllAsync } from "jest-async";
 
 const sleep = (value: number) =>
   new Promise((resolve) => setTimeout(resolve, value));

@@ -1,0 +1,56 @@
+{
+  "name": "jest-parallel",
+  "version": "1.0.0",
+  "description": "Simplify Jest parallel testing.  \r This allows you to write fast test code.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -b",
+    "test": "jest"
+  },
+  "keywords": [
+    "jest",
+    "parallel",
+    "test"
+  ],
+  "author": "SoraKumo",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^25.2.1",
+    "ts-jest": "^25.4.0",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "jest": "^25.5.2"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.json"
+      }
+    },
+    "testMatch": [
+      "**/test/**/*.test.ts"
+    ],
+    "moduleNameMapper": {
+      "jest-parallel": "<rootDir>/dist"
+    }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SoraKumo001/jest-parallel.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SoraKumo001/jest-parallel/issues"
+  },
+  "homepage": "https://ttis.croud.jp/"
+}

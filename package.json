@@ -23,7 +23,7 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
-    "jest": "^25.5.2"
+    "jest": "^25.5.4"
   },
   "jest": {
     "moduleFileExtensions": [

@@ -1,4 +1,4 @@
-import { testAsync, beforeAllAsync } from "jest-async";
+import { testAsync, beforeAllAsync, afterAllAsync } from "jest-async";
 
 const sleep = (value: number) =>
   new Promise((resolve) => setTimeout(resolve, value));
@@ -30,8 +30,10 @@ describe("Test", () => {
     await sleep(2000);
     console.log("D");
   });
+  afterAllAsync(async () => {
+    console.log("afterAll");
+  });
 });
-
 /*
  1,000 + 1,000 + 5,000 + 3,000 + 2,000 = 12,000ms
                ↓ Parallel execution

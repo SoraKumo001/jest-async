@@ -36,3 +36,12 @@ export const testAsync = <T>(
   it.concurrent(name, sync.exec(proc), timeout);
   return sync.lock();
 };
+export const testSync = <T>(
+  name: string,
+  proc: () => Promise<T>,
+  timeout?: number
+): Promise<T> => {
+  const sync = new Sync<T>();
+  it(name, sync.exec(proc), timeout);
+  return sync.lock();
+};

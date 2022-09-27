@@ -15,7 +15,7 @@ describe("Test", () => {
     return 100;
   });
   const B = testAsync("B", async () => {
-    await sleep(5000);
+    await sleep(4000);
     await initWait;
     console.log("B");
     return 200;
@@ -39,27 +39,40 @@ describe("Test", () => {
                ↓ Parallel execution
             5,705ms
 
- PASS  src/index.test.ts (5.705s)
-  ● Console
-    console.log
-      beforeAll
-      at src/index.test.ts:9:13
-    console.log
-      A
-      at src/index.test.ts:14:13
-    console.log
-      D
-      at src/index.test.ts:31:13
-    console.log
-      B
-      at src/index.test.ts:20:13
-    console.log
-      C 300
-      at src/index.test.ts:26:13
+  console.log
+    beforeAll
 
-Test Suites: 1 passed, 1 total
-Tests:       4 passed, 4 total
-Snapshots:   0 total
-Time:        6.288s
-Ran all test suites.
+      at log (test/test01.test.ts:9:13)
+
+  console.log
+    A
+
+      at log (test/test01.test.ts:14:13)
+
+  console.log
+    D
+
+      at log (test/test01.test.ts:31:13)
+
+  console.log
+    B
+
+      at log (test/test01.test.ts:20:13)
+
+  console.log
+    C 300
+
+      at log (test/test01.test.ts:26:13)
+
+  console.log
+    afterAll
+
+      at log (test/test01.test.ts:34:13)
+
+ PASS  test/test01.test.ts
+  Test
+    √ A (1 ms)
+    √ B (2990 ms)
+    √ C
+    √ D
 */

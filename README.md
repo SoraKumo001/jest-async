@@ -9,7 +9,7 @@ You can synchronize by waiting for them with "await".
 ## Example
 
 - Async Test
-  
+
 ```ts
 import { testAsync, beforeAllAsync, afterAllAsync } from "jest-async";
 
@@ -28,7 +28,7 @@ describe("Test", () => {
     return 100;
   });
   const B = testAsync("B", async () => {
-    await sleep(5000);
+    await sleep(4000);
     await initWait;
     console.log("B");
     return 200;
@@ -47,44 +47,58 @@ describe("Test", () => {
     console.log("afterAll");
   });
 });
-
 /*
- 1,000 + 1,000 + 5,000 + 3,000 + 2,000 = 12,000ms
+ 1,000 + 1,000 + 4,000 + 3,000 + 2,000 = 11,000ms
                ↓ Parallel execution
-            5,705ms
+            4,541ms
 
- PASS  src/index.test.ts (5.705s)
-  ● Console
-    console.log
-      beforeAll
-      at src/index.test.ts:9:13
-    console.log
-      A
-      at src/index.test.ts:14:13
-    console.log
-      D
-      at src/index.test.ts:31:13
-    console.log
-      B
-      at src/index.test.ts:20:13
-    console.log
-      C 300
-      at src/index.test.ts:26:13
-    console.log
-      afterAll
-      at test/test01.test.ts:34:13
+  console.log
+    beforeAll
+
+      at log (test/test01.test.ts:9:13)
+
+  console.log
+    A
+
+      at log (test/test01.test.ts:14:13)
+
+  console.log
+    D
+
+      at log (test/test01.test.ts:31:13)
+
+  console.log
+    B
+
+      at log (test/test01.test.ts:20:13)
+
+  console.log
+    C 300
+
+      at log (test/test01.test.ts:26:13)
+
+  console.log
+    afterAll
+
+      at log (test/test01.test.ts:34:13)
+
+ PASS  test/test01.test.ts
+  Test
+    √ A (1 ms)
+    √ B (2990 ms)
+    √ C
+    √ D
 
 Test Suites: 1 passed, 1 total
 Tests:       4 passed, 4 total
 Snapshots:   0 total
-Time:        6.288s
-Ran all test suites.
+Time:        4.541 s, estimated 5 s
 */
 ```
 
 - Sync Test
 
-```.ts
+```ts
 import { beforeAllAsync, testSync, afterAllAsync } from "jest-async";
 
 const sleep = (value: number) =>
@@ -102,7 +116,7 @@ describe("Test2", () => {
     return 100;
   });
   const B = testSync("B2", async () => {
-    await sleep(5000);
+    await sleep(4000);
     await initWait;
     console.log("B2");
     return 200;
@@ -121,37 +135,47 @@ describe("Test2", () => {
     console.log("afterAll2");
   });
 });
+
 /*
   console.log
     beforeAll2
-      at test/test02.test.ts:9:13
+
+      at log (test/test02.test.ts:9:13)
+
   console.log
     A2
-      at test/test02.test.ts:14:13
+
+      at log (test/test02.test.ts:14:13)
+
   console.log
     B2
-      at test/test02.test.ts:20:13
+
+      at log (test/test02.test.ts:20:13)
+
   console.log
     C2 300
-      at test/test02.test.ts:26:13
+
+      at log (test/test02.test.ts:26:13)
+
   console.log
     D2
-      at test/test02.test.ts:31:13
+
+      at log (test/test02.test.ts:31:13)
+
   console.log
     afterAll2
-      at test/test02.test.ts:34:13
 
-  PASS  test/test02.test.ts (12.632s)
+      at log (test/test02.test.ts:34:13)
+
+ PASS  test/test02.test.ts (11.329 s)
   Test2
-    √ A2 (1016ms)
-    √ B2 (5006ms)
-    √ C2 (3015ms)
-    √ D2 (2008ms)
+    √ A2 (1018 ms)
+    √ B2 (4003 ms)
+    √ C2 (3011 ms)
+    √ D2 (2008 ms)
 
 Test Suites: 1 passed, 1 total
 Tests:       4 passed, 4 total
 Snapshots:   0 total
-Time:        13.234s, estimated 14s
-Ran all test suites.
-*/
+Time:        11.596 s, estimated 12 s
 ```

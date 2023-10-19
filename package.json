@@ -1,6 +1,6 @@
 {
   "name": "jest-async",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Simplify Jest parallel testing.  \r This allows you to write fast test code.",
   "main": "./dist/cjs/index.js",
   "types": "./dist/cjs/index.d.ts",

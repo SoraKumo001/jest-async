@@ -3,3 +3,5 @@ node_modules
 src
 test
 esm
+tsconfig.esm.json
+tsconfig.json
